@@ -1,0 +1,34 @@
+filetype off
+
+" Vundle setup
+set rtp+=~/.vim/bundle/vundle
+call vundle#rc()
+
+" Manage Vundle with Vundle
+Bundle 'gmarik/vundle'
+
+" Airline
+Bundle 'bling/vim-airline'
+" Tab formating plugin
+Bundle 'godlygeek/tabular'
+" Color schemes
+Bundle 'tomasr/molokai'
+" Git Plugin
+Bundle 'tpope/vim-fugitive'
+" tagbar
+Bundle 'majutsushi/tagbar'
+noremap <F2> :TagbarToggle<CR>
+" Org-mode for vim
+Bundle 'jceb/vim-orgmode'
+" autoformat
+Bundle 'Chiel92/vim-autoformat'
+noremap <F3> :Autoformat<CR><CR>
+" Vimscript
+Bundle 'L9'
+Bundle 'FuzzyFinder'
+noremap <F4> :FufFile<CR>
+Bundle 'AnsiEsc.vim'
+Bundle 'NrrwRgn'
+Bundle 'calendar.vim'
+Bundle 'speeddating.vim'
+Bundle 'utl.vim'
