@@ -13,12 +13,12 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
-font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+# font -*-termsynu-medium-*-*-*-14-*-*-*-*-*-*-* 
 # The font above is very space-efficient, that is, it looks good, sharp and
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
-# font pango:DejaVu Sans Mono 10
+font pango:Termsynu 11 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -26,15 +26,21 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
-# kill focused window
+# kill focused #window
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+bindsym $mod+p exec dmenu_run 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+
+# start gvim (a very nice text editor)
+bindsym $mod+Shift+e exec gvim
+
+# start firefox
+bindsym $mod+Shift+b exec firefox
 
 # change focus
 bindsym $mod+h focus left
@@ -72,7 +78,7 @@ bindsym $mod+f fullscreen
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+t layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -84,7 +90,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+d focus child
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -115,7 +121,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Control+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -143,13 +149,29 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# class                 border  backgr. text    indicator
+client.focused          #1b1d1e #1b1d1e #a0a0a0 #2e9ef4
+client.focused_inactive #181716 #181716 #808080 #484e50
+client.unfocused        #131211 #131211 #505050 #292d2e
+client.urgent           #cb4b16 #cb4b16 #b58900 #900000
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+	font pango:Termsynu, Icons 11 
         status_command i3status
+	colors {
+		background #1b1d1e
+		statusline #a0a0a0
+		separator #a0a0a0
+		focused_workspace  #1b1d1e #1b1d1e #f92672 
+		active_workspace   #1b1d1e #1b1d1e #fd971f
+		inactive_workspace #1b1d1e #1b1d1e #a0a0a0
+		urgent_workspace   #f92672 #f92672 #a0a0a0 
+	}
 }
 
-exec compton --config ~/.config/compton.conf -b
+exec compton -b
 
 exec xcmenu -d
 exec sudo /etc/scripts/trackpoint
