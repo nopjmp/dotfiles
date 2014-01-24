@@ -171,7 +171,8 @@ bar {
 	}
 }
 
-exec compton -b
+exec --no-startup-id compton -b
+exec --no-startup-id ~/.fehbg
 
-exec xcmenu -d
-exec sudo /etc/scripts/trackpoint
+exec --no-startup-id xcmenu -d
+exec --no-startup-id sudo /etc/scripts/trackpoint

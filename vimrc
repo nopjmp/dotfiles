@@ -3,15 +3,13 @@ set nocompatible " be iMproved
 
 " Vundle stuff
 if filereadable(glob("~/.vimrc.plugins"))
-    source ~/.vimrc.plugins
+  source ~/.vimrc.plugins
 endif
 
-" COLOR
-set t_Co=256
-
+" Color
+colorscheme molokai
 " GUI
 if has("gui_running")
-  colorscheme molokai
   set guioptions-=m
   set guioptions-=T
   set guioptions-=r
@@ -19,7 +17,8 @@ if has("gui_running")
   set guifont=Termsynu\ 11
 else
   set background=dark
-  colorscheme molokai
+  let g:rehash256 = 1
+  set t_Co=256
 endif
 
 " backups             
