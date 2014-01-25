@@ -6,8 +6,6 @@ if filereadable(glob("~/.vimrc.plugins"))
   source ~/.vimrc.plugins
 endif
 
-" Color
-colorscheme molokai
 " GUI
 if has("gui_running")
   set guioptions-=m
@@ -17,9 +15,12 @@ if has("gui_running")
   set guifont=Termsynu\ 11
 else
   set background=dark
-  let g:rehash256 = 1
   set t_Co=256
+  let g:rehash256 = 1
 endif
+
+" Color
+colorscheme molokai
 
 " backups             
 set backup

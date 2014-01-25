@@ -125,26 +125,26 @@ bindsym $mod+Control+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+# These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+# Pressing left will shrink the window’s width.
+# Pressing right will grow the window’s width.
+# Pressing up will shrink the window’s height.
+# Pressing down will grow the window’s height.
+  bindsym j resize shrink width 10 px or 10 ppt
+  bindsym k resize grow height 10 px or 10 ppt
+  bindsym l resize shrink height 10 px or 10 ppt
+  bindsym semicolon resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+# same bindings, but for the arrow keys
+  bindsym Left resize shrink width 10 px or 10 ppt
+  bindsym Down resize grow height 10 px or 10 ppt
+  bindsym Up resize shrink height 10 px or 10 ppt
+  bindsym Right resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+# back to normal: Enter or Escape
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
 }
 
 bindsym $mod+r mode "resize"
@@ -158,17 +158,17 @@ client.urgent           #cb4b16 #cb4b16 #b58900 #900000
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-	font pango:Termsynu, Icons 11 
-        status_command i3status
-	colors {
-		background #1b1d1e
-		statusline #a0a0a0
-		separator #a0a0a0
-		focused_workspace  #1b1d1e #1b1d1e #f92672 
-		active_workspace   #1b1d1e #1b1d1e #fd971f
-		inactive_workspace #1b1d1e #1b1d1e #a0a0a0
-		urgent_workspace   #f92672 #f92672 #a0a0a0 
-	}
+  font pango:Termsynu, Icons 11 
+  status_command py3status --debug -i ~/.py3status/ -c ~/.i3status.conf 
+  colors {
+      background #1b1d1e
+      statusline #a0a0a0
+      separator #a0a0a0
+      focused_workspace  #1b1d1e #1b1d1e #f92672 
+      active_workspace   #1b1d1e #1b1d1e #fd971f
+      inactive_workspace #1b1d1e #1b1d1e #a0a0a0
+      urgent_workspace   #f92672 #f92672 #a0a0a0 
+  }
 }
 
 exec --no-startup-id compton -b
