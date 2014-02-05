@@ -6,29 +6,31 @@ call vundle#rc()
 
 " Manage Vundle with Vundle
 Bundle 'gmarik/vundle'
-
-" Airline
+" Code tools
 Bundle 'bling/vim-airline'
-" Tab formating plugin
-Bundle 'godlygeek/tabular'
-" Color schemes
-Bundle 'tomasr/molokai'
-" Git Plugin
+Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-fugitive'
-" tagbar
+Bundle 'godlygeek/tabular'
 Bundle 'majutsushi/tagbar'
-noremap <F2> :TagbarToggle<CR>
-" Org-mode for vim
-Bundle 'jceb/vim-orgmode'
-" autoformat
 Bundle 'Chiel92/vim-autoformat'
-noremap <F3> :Autoformat<CR><CR>
-" Vimscript
-Bundle 'L9'
-Bundle 'FuzzyFinder'
-noremap <F4> :FufFile<CR>
-Bundle 'AnsiEsc.vim'
-Bundle 'NrrwRgn'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'scrooloose/nerdtree'
+" Language helpers
+Bundle 'hynek/vim-python-pep8-indent'
+" Color schemes
+Bundle 'zeis/vim-kolor'
+" Misc
 Bundle 'calendar.vim'
-Bundle 'speeddating.vim'
-Bundle 'utl.vim'
+
+" Airline Status bar text
+let g:airline_theme="kolor"
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+
+" NERDTree
+noremap <leader>z :NERDTreeToggle<CR>
+
+" Tagbar
+noremap <leader>x :TagbarToggle<CR>
+" autoformat
+noremap <F3> :Autoformat<CR><CR>

@@ -11,16 +11,19 @@ if has("gui_running")
   set guioptions-=m
   set guioptions-=T
   set guioptions-=r
+  set guioptions-=L
   set guiheadroom=0
   set guifont=Termsynu\ 11
 else
   set background=dark
-  set t_Co=256
-  let g:rehash256 = 1
 endif
 
 " Color
-colorscheme molokai
+let g:kolor_italic=0 " Enable italic. Default: 1
+let g:kolor_bold=1 " Enable bold. Default: 1
+let g:kolor_underlined=0 " Enable underline for 'Underlined'. Default: 0
+let g:kolor_alternative_matchparen=0 " Gray 'MatchParen' color. Default: 0
+colorscheme kolor
 
 " backups             
 set backup
@@ -30,6 +33,7 @@ set noswapfile
 
 " Visual and Text things
 set laststatus=2
+set backspace=indent,eol,start
 set encoding=utf-8
 set number
 set showcmd
@@ -40,7 +44,7 @@ set listchars=tab:»\ ,eol:¬
 set list
 " Use 2 spaces by default 4 when its convetion
 autocmd FileType * set ts=2 sw=2 sts=2 expandtab
-autocmd FileType c,h,cpp,hpp,glsl,python,php,objc,m set ts=4 sw=4 sts=4 expandtab
+autocmd FileType c,h,cpp,hpp,glsl,php,objc,m set ts=4 sw=4 sts=4 expandtab
 
 set ttyfast
 set smartcase
@@ -53,11 +57,6 @@ set mat=2
 set mouse=a
 set ffs=unix,dos,mac
 
-" Status bar text
-let g:airline_theme="powerlineish"
-" Powerline / Airline symbols
-let g:airline_left_sep=''
-let g:airline_right_sep=''
 "================== Keybinds ====================
 " Treat long lines as break lines
 map j gj
@@ -107,9 +106,6 @@ imap <leader>( ()<Esc>i
 imap <leader>[ []<Esc>i
 imap <leader>{ {}<Esc>i
 
-" allow backspacing over autoindent, line beaks, and the start of insert
-set backspace=indent,eol,start
-
 " Enter to insert newline wihtout entering insert mode
 map <C-Enter> O<Esc>
 map <CR> o<Esc>
@@ -119,14 +115,3 @@ command! Wq :execute ':W' | :q
 command! WQ :Wq
 map ZS :Wq<Return>
 map <C-s> :w
-
-" solid underscore
-"let &t_SI .= "\<ESC>[4 q"
-"" solid block
-"let &t_EI .= "\<ESC>[2 q"
-"" Save cursor on open
-"silent !echo -ne "\033 7"
-"" Change cursor to Solid block
-"silent !echo -ne "\033[4 q"
-"" Restore cursor on close
-"autocmd VimLeave * silent !echo -ne "\033 8"
