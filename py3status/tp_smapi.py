@@ -2,6 +2,7 @@
 import math
 import time
 
+#TODO: fix this, hacky hacky hacky
 class Data:
     """
     Data class to fetch tp_smapi battery data and format
@@ -57,7 +58,9 @@ class Data:
         return "{:0>2}:{:0>2}".format(hoursleft, minutesleft)
 
     def formatted_state(self):
-        state_int = (100 - self.remaining_percent) // 25
+        state_int = 0
+        if self.state is 'discharging':
+            state_int = (100 - self.remaining_percent) // 25
         return (state_int, self.state_format[self.state][state_int])
 
     def update(self):
@@ -82,17 +85,23 @@ class Py3status:
         self.data.update()
 
         response = {'full_text': '', 'name': 'tp_smapi'}
-        state_int, state = self.data.formatted_state()
+        _, state = self.data.formatted_state()
 
-        response['color'] = i3status_config[self.color_dict[state_int]]
+        if self.data.remaining_percent > 50:
+            response['color'] = i3status_config['color_good']
+        elif self.data.remaining_percent > 20:
+            response['color'] = i3status_config['color_degraded']
+        else:
+            response['color'] = i3status_config['color_bad']
+
         if self.data.is_idle():
             response['full_text'] = "{} {}%".format(state,
-                                                      self.data.remaining_percent)
+                    self.data.remaining_percent)
         else:
             response['full_text'] = "{} {}% {}".format(state,
-                                                          self.data.remaining_percent,
-                                                          self.data.formatted_time())
-        # cache the status for 30 seconds
+                    self.data.remaining_percent,
+                    self.data.formatted_time())
+            # cache the status for 30 seconds
         response['cached_until'] = time.time() + 5 
         return (4, response)
 

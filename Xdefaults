@@ -13,33 +13,30 @@ xterm*bellIsUrgent	: true
 *font			: -*-termsynu-medium-r-*-*-14-*-*-*-*-*-*-*
 *boldFont		: -*-termsynu-bold-r-*-*-14-*-*-*-*-*-*-*
 
-! terminal colours
-xterm*foreground:#a0a0a0
-xterm*background:#1b1d1e
-
-!molokai inspired colors
-
-!black
-xterm*color0:    #1b1d1e
-xterm*color8:    #505354
-!red
-xterm*color1:    #f92672
-xterm*color9:    #ff5995
-!green
-xterm*color2:    #82b414
-xterm*color10:   #b6e354
-!yellow
-xterm*color3:    #fd971f
-xterm*color11:   #feed6c
-!blue
-xterm*color4:    #56c2d6
-xterm*color12:   #8cedff
-!magenta
-xterm*color5:    #8c54fe
-xterm*color13:   #9e6ffe
-!cyan
-xterm*color6:    #465457
-xterm*color14:   #899ca1
-!white
-xterm*color7:    #ccccc6
-xterm*color15:   #f8f8f2
+! Color Scheme
+*background:#242424
+*foreground:#e8e9ca
+! black
+*color0: #1C1C1C
+*color8: #404040
+! red
+*color1: #B85335
+*color9: #CF6A4C
+! green
+*color2: #799D6A
+*color10: #99AD6A
+! yellow
+*color3: #FFB964
+*color11: #FAD07A
+! blue
+*color4: #667899
+*color12: #8197BF
+! magenta
+*color5: #8787AF
+*color13: #C6B6EE
+! cyan
+*color6: #668799
+*color14: #8FBFDC
+! white
+*color7: #888888
+*color15: #E8E8D3

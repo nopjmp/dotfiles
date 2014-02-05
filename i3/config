@@ -149,27 +149,46 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# Window specific settings
+for_window [class="Steam"] floating enable 
+
+# light red: cf6a4c
+# light yello: #ffb964
+# light cyan: 8fbfdc
+# light blue: 8a97bf
+# dark red: b85335
+# dark grey: 333333
+# darker grey: 1a1a1a
+# light grey: cccccc
+# cream: #f7d5c3
+# white: ffffff
+
 # class                 border  backgr. text    indicator
-client.focused          #1b1d1e #1b1d1e #a0a0a0 #2e9ef4
-client.focused_inactive #181716 #181716 #808080 #484e50
-client.unfocused        #131211 #131211 #505050 #292d2e
-client.urgent           #cb4b16 #cb4b16 #b58900 #900000
+client.focused          #b85335 #b85335 #333333 #cf6a4c
+client.focused_inactive #1a1a1a #1a1a1a #cccccc #cf6a4c
+client.unfocused        #1a1a1a #1a1a1a #cccccc #cf6a4c
+# Invert of focused
+client.urgent           #8fbfdc #8fbfdc $333333 #8fbfdc
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
   font pango:Termsynu, Icons 11 
-  status_command py3status --debug -i ~/.py3status/ -c ~/.i3status.conf 
+  status_command py3status -i ~/.py3status/ -c ~/.i3status.conf 
   colors {
-      background #1b1d1e
-      statusline #a0a0a0
-      separator #a0a0a0
-      focused_workspace  #1b1d1e #1b1d1e #f92672 
-      active_workspace   #1b1d1e #1b1d1e #fd971f
-      inactive_workspace #1b1d1e #1b1d1e #a0a0a0
-      urgent_workspace   #f92672 #f92672 #a0a0a0 
+    #color              border  backgr  text
+    background          #333333
+    statusline          #b3b3b3
+    active_workspace    #333333 #333333 #ffffff
+    focused_workspace   #333333 #333333 #ffffff
+    inactive_workspace  #333333 #333333 #b3b3b3
   }
 }
+
+bindsym XF86AudioRaiseVolume exec ~/bin/vol.sh up
+bindsym XF86AudioLowerVolume exec ~/bin/vol.sh down
+
+new_window pixel 3 
 
 exec --no-startup-id compton -b
 exec --no-startup-id ~/.fehbg
