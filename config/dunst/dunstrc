@@ -26,9 +26,6 @@
     # Sort messages by urgency.
     sort = yes
 
-    # Stack duplicate Messages or show them individually
-    stack_duplicates = yes
-    
     # Show how many messages are currently hidden (because of geometry).
     indicate_hidden = yes
     
@@ -54,6 +51,8 @@
     # Ignore newlines '\n' in notifications.
     ignore_newline = no
     
+    # Don't stack duplicates 
+    stack_duplicates = yes 
     
     # The geometry of the window:
     #   [{width}]x{height}[+/-{x}+/-{y}]
