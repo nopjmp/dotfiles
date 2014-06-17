@@ -6,7 +6,7 @@
 
 export EDITOR=vim
 export BROWSER=firefox
-export PATH=$PATH:~/bin
+export PATH=$PATH:~/bin:~/.cabal/bin
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 

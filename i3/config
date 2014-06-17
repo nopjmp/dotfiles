@@ -30,7 +30,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+p exec dmenu_run 
+bindsym $mod+p exec custom-dmenu
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -174,13 +174,13 @@ client.urgent           #8fbfdc #8fbfdc $333333 #8fbfdc
 # finds out, if available)
 bar {
   font pango:Termsynu, Icons 11 
-  status_command py3status -i ~/.py3status/ -c ~/.i3status.conf 
+  status_command py3status -i ~/.py3status/ -c ~/.i3status.conf
   colors {
     #color              border  backgr  text
     background          #333333
     statusline          #b3b3b3
-    active_workspace    #333333 #333333 #ffffff
-    focused_workspace   #333333 #333333 #ffffff
+    active_workspace    #8fbfdc #333333 #ffffff
+    focused_workspace   #b85335 #b85335 #ffffff
     inactive_workspace  #333333 #333333 #b3b3b3
   }
 }

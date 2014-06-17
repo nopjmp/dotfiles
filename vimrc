@@ -1,6 +1,10 @@
 " nopjmp vimrc
 set nocompatible " be iMproved
 
+" Custom macro silliness
+let mapleader=","
+let g:mapleader=","
+
 " Vundle stuff
 if filereadable(glob("~/.vimrc.plugins"))
   source ~/.vimrc.plugins
@@ -14,8 +18,6 @@ if has("gui_running")
   set guioptions-=L
   set guiheadroom=0
   set guifont=Termsynu\ 11
-else
-  set background=dark
 endif
 
 " Color
@@ -46,7 +48,6 @@ set list
 autocmd FileType * set ts=2 sw=2 sts=2 expandtab
 autocmd FileType c,h,cpp,hpp,glsl,php,objc,m set ts=4 sw=4 sts=4 expandtab
 
-set ttyfast
 set smartcase
 set hlsearch
 set incsearch
@@ -59,8 +60,8 @@ set ffs=unix,dos,mac
 
 "================== Keybinds ====================
 " Treat long lines as break lines
-map j gj
-map k gk
+" map j gj
+" map k gk
 " Move Faster
 map <C-j> <C-d>
 map <C-k> <C-u>
@@ -77,6 +78,9 @@ map <C-space> ?
 no <C-down> ddp
 no <C-up> ddkP
 
+" Fold
+nmap <leader>f zf%
+
 " Auto center
 nmap G Gzz
 nmap n nzz
@@ -90,10 +94,6 @@ syntax on
 filetype on
 filetype plugin on
 filetype plugin indent on
-
-" Custom macro silliness
-let mapleader=","
-let g:mapleader=","
 
 " Fast saving
 nmap <leader>w :w!<cr>
@@ -110,8 +110,4 @@ imap <leader>{ {}<Esc>i
 map <C-Enter> O<Esc>
 map <CR> o<Esc>
 
-command! W :execute ':silent w !sudo % > /dev/null' | :edit!
-command! Wq :execute ':W' | :q
-command! WQ :Wq
-map ZS :Wq<Return>
 map <C-s> :w

@@ -1,36 +1,58 @@
-filetype off
+"Bundle Scripts-----------------------------
+if has('vim_starting')
+  set nocompatible               " Be iMproved
 
-" Vundle setup
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
+  " Required:
+  set runtimepath+=/home/nopjmp/.vim/bundle/neobundle.vim/
+endif
 
-" Manage Vundle with Vundle
-Bundle 'gmarik/vundle'
-" Code tools
-Bundle 'bling/vim-airline'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'tpope/vim-fugitive'
-Bundle 'godlygeek/tabular'
-Bundle 'majutsushi/tagbar'
-Bundle 'Chiel92/vim-autoformat'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'scrooloose/nerdtree'
-" Language helpers
-Bundle 'hynek/vim-python-pep8-indent'
+" Required:
+call neobundle#begin(expand('/home/nopjmp/.vim/bundle'))
+
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" My Bundles here:
+NeoBundle 'Shougo/neosnippet.vim'
+NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'flazz/vim-colorschemes'
+NeoBundle 'bling/vim-airline'
+NeoBundle 'godlygeek/tabular'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'hynek/vim-python-pep8-indent'
+NeoBundle 'Valloric/YouCompleteMe'
 " Color schemes
-Bundle 'zeis/vim-kolor'
+NeoBundle 'zeis/vim-kolor'
 " Misc
-Bundle 'calendar.vim'
+NeoBundle 'calendar.vim'
 
-" Airline Status bar text
+" Required:
+call neobundle#end()
+
+" Required:
+filetype plugin indent on
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
+"End NeoBundle Scripts-------------------------
+
+" Plugin configs
 let g:airline_theme="kolor"
 let g:airline_left_sep=''
 let g:airline_right_sep=''
+
+" YouCompleteMe default config
+let g:ycm_global_ycm_extra_conf = "~/.vim/ycm_extra_conf.py"
 
 " NERDTree
 noremap <leader>z :NERDTreeToggle<CR>
 
 " Tagbar
-noremap <leader>x :TagbarToggle<CR>
-" autoformat
+noremap <leader>x :TagBarToggle<CR>
+
+" Autoformat
 noremap <F3> :Autoformat<CR><CR>
