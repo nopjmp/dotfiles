@@ -5,7 +5,7 @@ set nocompatible " be iMproved
 let mapleader=","
 let g:mapleader=","
 
-" Vundle stuff
+" NeoBundle stuff
 if filereadable(glob("~/.vimrc.plugins"))
   source ~/.vimrc.plugins
 endif
@@ -17,7 +17,7 @@ if has("gui_running")
   set guioptions-=r
   set guioptions-=L
   set guiheadroom=0
-  set guifont=Termsynu\ 11
+  set guifont=DejaVu\ Sans\ Mono\ 10
 endif
 
 " Color

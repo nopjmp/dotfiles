@@ -3,11 +3,11 @@ if has('vim_starting')
   set nocompatible               " Be iMproved
 
   " Required:
-  set runtimepath+=/home/nopjmp/.vim/bundle/neobundle.vim/
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
 " Required:
-call neobundle#begin(expand('/home/nopjmp/.vim/bundle'))
+call neobundle#begin(expand('~/.vim/bundle'))
 
 " Let NeoBundle manage NeoBundle
 " Required:
@@ -23,7 +23,11 @@ NeoBundle 'bling/vim-airline'
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'hynek/vim-python-pep8-indent'
-NeoBundle 'Valloric/YouCompleteMe'
+NeoBundle 'Valloric/YouCompleteMe' , {
+            \ 'build' : {
+            \    'unix' : './install.sh --clang-completer --system-libclang'
+            \ },
+\ }
 " Color schemes
 NeoBundle 'zeis/vim-kolor'
 " Misc
